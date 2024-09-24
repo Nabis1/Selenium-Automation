@@ -76,6 +76,15 @@ try:
 except Exception as e:
     print(f"An error occurred while typing into the input field: {e}")
 
+try:
+    # Locate the checkbox using the label's `for` attribute
+    checkbox_label = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//label[@for='OnlyDirect']"))
+    )
+    checkbox_label.click()  # Click the label to toggle the checkbox
+    print("Clicked the 'Pouze přímá spojení' checkbox.")
+except Exception as e:
+    print(f"An error occurred while clicking the 'Pouze přímá spojení' checkbox: {e}")
 
 
 driver.quit()
